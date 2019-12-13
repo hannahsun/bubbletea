@@ -1,38 +1,3 @@
-// cursor
-$(document).on('mousemove', function(e) {
-    $('#mycursor').css({
-        left: e.clientX,
-        top: e.clientY,
-        });
-    });
-    
-    $(window).mousemove(function(e) {
-        $("a, button, .sub-menu-btn, .section-nav-item, .btn-cancel, .bg-text-2, #nav-toggle, .nav-item, #submit, .social-icon")
-            .on("mouseenter", function() {   
-                $('#mycursor').addClass("pointer")})
-            .on("mouseleave", function() {   
-                $('#mycursor').removeClass("pointer")});
-        
-        $(".social-icon")
-            .on("mouseenter", function() {   
-                $('#mycursor').removeClass().addClass("pointer")})
-            .on("mouseleave", function() {   
-                $('#mycursor').addClass('back').removeClass("pointer")});
-
-        $(".sidemenu")
-            .on("mouseenter", function() {   
-                $('#mycursor').addClass("back")})
-            .on("mouseleave", function() {   
-                $('#mycursor').removeClass("back")});
-                
-        $("#div-bg, #section-0, #section-1, #section-2")
-            .on("mouseenter", function() {   
-                $('#mycursor').addClass("scroll")})
-            .on("mouseleave", function() {   
-                $('#mycursor').removeClass("scroll")});
-    });
-
-
 /*--------------- menu / buttons ---------------*/
 
 const topmenu = document.querySelector('#nav-toggle');
