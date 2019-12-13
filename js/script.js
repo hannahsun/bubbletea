@@ -285,7 +285,7 @@ var controller = new ScrollMagic.Controller();
 
 
 // buttom navigation status
-        new ScrollMagic.Scene({triggerElement: "#section-0", duration: `${$('#section-1').height()}`})
+        new ScrollMagic.Scene({triggerElement: "#section-0", duration: `${$('#section-0').height()}`})
             .setClassToggle(bottom_nav[0], "active")
             // .addIndicators({name: "#section-1 / illo (duration: 250%)"}) // add indicators
             .addTo(controller);
