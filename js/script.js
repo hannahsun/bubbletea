@@ -373,9 +373,9 @@ $('.detail-wrapper').css({"width":`${w}`, "right": `${offset}px`});
 /*——————reload scrollMagic on resizing——————*/
 scroll_Magic(); 
 
-$(window).on("resize", function(){
-    scroll_Magic();
-});
+// $(window).on("resize", function(){
+//     scroll_Magic();
+// });
 
 
 
