@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Bubble Tea Handbook</title>
+        <meta name="description" content="">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <link href="style-index.css" rel="stylesheet" type="text/css">
+        <!-- google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,900&display=swap" rel="stylesheet">
+        <!-- bg- -->
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+        </script>
+        <!-- scrollMagic & greensock gsap -->
+        <script src="js/ScrollMagic.min.js"></script>
+        <script src="js/debug.addIndicators.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+
+        <!-- custom cursor -->
+        <div id="mycursor"></div>
+        <script>
+            $(document).on('mousemove', function(e) {
+                $('#mycursor').css({
+                    left: e.clientX,
+                    top: e.clientY,
+                    });
+                });
+                
+                $(window).mousemove(function(e) {
+                    $("a, button, .sub-menu-btn, .section-nav-item, .btn-cancel, .bg-text-2, #nav-toggle, .nav-item, #submit")
+                        .on("mouseenter", function() {   
+                            $('#mycursor').addClass("pointer")})
+                        .on("mouseleave", function() {   
+                            $('#mycursor').removeClass("pointer")});
+                    $(".nav-wrapper, #map, #sec3-sub-2, .form, .form-wrapper")
+                        .on("mouseenter", function() {   
+                            $('#mycursor').addClass("simple")})
+                        .on("mouseleave", function() {   
+                            $('#mycursor').removeClass("simple")});
+                    $(".sidemenu")
+                        .on("mouseenter", function() {   
+                            $('#mycursor').addClass("back")})
+                        .on("mouseleave", function() {   
+                            $('#mycursor').removeClass("back")});
+                });
+            
+        </script>
+
+    </head>
+    <body>
+        <nav> <!--top menu icon-->
+            <div id="nav-toggle">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+            </div>
+            <div class="nav-wrapper">
+                <ul class="nav-items">
+                    <li class="nav-item" data-menu="about">about</li>
+                    <li class="nav-item" data-menu="social">social</li>
+                    <li class="nav-item" data-menu="feedback">feedback</li>
+                </ul>
+                <div class="sidemenu about-container">
+                        <div class="about-detail">
+                                <h2>About</h2><br>
+                                This site is a starter guide for bubble tea first-timers to get familiar with the world of bubble tea as well as a platform that collects and sifts out quality bubble tea shops to share with the community.<br>
+                                If you wish to see any other bubble tea related information on this site, feel free to shoot us a message, and we’ll add it to our list.<br><br><br>
+
+                                <div class="about-meta">
+                                        <span class="credits">Design & Development: &nbsp; Hannah Sun</span>
+                                        <br><br>
+
+                                        <span class="sources">
+                                        sources:<br>
+                                        www.wsj.com/articles/bubble-tea-now-comes-with-a-little-kick-11567260000<br>
+                                        ny.eater.com/maps/best-bubble-tea-boba-nyc-chinatown-flushing-east-village-sunset-park<br>
+                                        gothamist.com/food/the-9-best-bubble-tea-spots-in-nyc<br>
+                                        www.eater.com/2019/3/6/18240387/boba-milk-bubble-tea-explained-how-to-order<br>
+                                        en.wikipedia.org/wiki/Bubble_tea
+                                        </span>
+                                </div>
+                        </div>         
+                    </div>
+    
+            </div>
+        </nav>
+        <!-- bottom section nav -->
+        <div class="section-nav">  
+            <ul>
+                <li class="section-nav-item" data-section-index = "0">top</li>
+                <li class="section-nav-item" data-section-index = "1">customize it up</li>
+                <li class="section-nav-item" data-section-index = "4">find your tea</li>
+                <li class="section-nav-item" data-section-index = "5">submit</li>
+            </ul>
+        </div>
+        
+        <section id="section-0" data-section-name="intro" data-section-index = "-1">
+                
+        </section>
+        <section id="section-1" data-section-name="anatomy" data-section-index = "0">
+            <div id="section-1-trigger"></div>
+            <div class="info-wrapper">
+                <button class="btn-cancel" id="cancel-info">
+                    <div class="btn-cancel-bar"></div>
+                    <div class="btn-cancel-bar"></div>
+                </button>
+                <div id="info-popup">
+                    <p id="bubblepedia">bubblepedia ——</p>
+                    <div class="history-scroll-wrapper">
+                            <div class="history-wrapper">
+                                <div class="history">
+                                    <p>Since bubble tea being originated in Taiwan in the 1980’s, the bubble tea fad continues to spread, and now it’s gaining popularity beyond the Asian community into Europe and North America.</p>
+                                </div>
+                                <br><br><br><br>
+                                <div class="history">
+                                        <h3>But what exactly is<br>bubble tea?</h3>
+                                        <p>In its most basic form, the drink consists of black tea, milk, ice, and chewy tapioca pearls, all shaken together like a martini and served with that famously fat straw to accommodate the marbles of tapioca that cluster at the bottom of the cup. Since its beginnings, the basic tapioca iced tea recipe has evolved into an entire genre of drinks.
+                                            </p>
+                                </div>
+                                <div class="history">
+                                        <h3>What’s in the name?</h3>
+                                        <p>It’s a common and understandable misconception that bubble tea gets its name from the bubble-like tapioca pearls that fill the bottom of the cup. Rather, the truth behind the origin of the bubble tea name can be seen at the top of the beverage. When you order a bubble tea, the mixture is shaken vigorously, by hand or by machine, before being served. This shaking process creates foamy bubbles at the top of the drink, and it’s this uppermost layer that gives bubble tea its name.
+                                        <br><br>
+                                        Bubble tea is also commonly called boba tea, pearl tea, or tapioca tea. The monikers differ by location, but also personal preference. In the U.S., the East Coast favors bubble tea, while the West prefers boba.
+                                            </p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="intro-wrapper">
+                    <h2 id="intro-1" class="intro">
+                        <span id="intro-span-1">Did you know that</span>
+                        <span id="intro-span-2">bubble tea is quickly</span>
+                        <span id="intro-span-3">becoming <span class="intro-fill" style="display: inline;">a new craze</span</span>
+                        <span id="intro-span-4" class="intro-fill">at New York City?</span>
+                    </h2>
+                    
+                    <div id="intro-2" class="intro">
+                            A growing number of bubble tea shops are opening throughout the metropolitan region.
+                            <div class="spacer"></div>
+                            In an attempt to introduce you to this drink, we've outlined some of the most popular bubble teas and the various choices you have when ordering or making bubble tea.
+                    </div>
+                </div>
+
+            <div class="bg-text-1-wrapper">
+                <h2 id="bg-text-1-A" class="bg-text-1"><span class="dot">
+                    </span>bubble<span class="dot">
+                    </span>tea<span class="dot">
+                    </span>bubble<span class="dot">
+                    </span>tea<span class="dot">
+                    </span>
+                </h2>
+                
+                <h2 id="bg-text-1-B" class="bg-text-1"><span class="dot">
+                    </span>bubble<span class="dot">
+                    </span>tea<span class="dot">
+                    </span>bubble<span class="dot">
+                    </span>tea<span class="dot">
+                    </span>
+                </h2>
+            </div>
+           
+
+            <div class="detail-wrapper">
+                <div class="detail-meta">info ——</div>
+                <div class="details" id="details-topping" data-category="topping">
+                    <p class="detail" data-parent-category="topping" data-category="tapioca">
+                            A milky tea with tapioca pearls is commonly known as one of the classic bubble tea.
+                            Traditionally 1/12th-inch in diameter and usually black in color, tapioca pearl is made from cassava starch, sweet potato and brown sugar. Sometimes white tapioca pearls are used—these are made from cassava starch, caramel, and chamomile root and have different flavor.
+                    </p>
+                    <p class="detail" data-parent-category="topping"  data-category="pudding">
+                            Any type of milk tea with any type of pudding is bliss. Milk tea and pudding are a match made in Heaven. But if you’re getting a fruit slush, topping it with pudding might not be a good idea... 
+                    </p>
+                    <p class="detail" data-parent-category="topping" data-category="redbean">
+                            Red bean, also known as Azuki in Japanese, is sweet, creamy and earthy. It has a slight granulated texture and goes great with dairy.
+                    </p>
+                    <p class="detail" data-parent-category="topping" data-category="nata">
+                            Another alternative to traditional bubble tea is to substitute tapioca pearls with coconut jelly, a lighter option. Coconut jelly is served in small Lego-like pieces and have a sweet, crunchy consistency
+                    </p>
+                    <p class="detail" data-parent-category="topping" data-category="herbal">
+                            Grass Jelly is a jelly-like dessert eaten in East Asia. It’s created by using the Platostoma palustre plant and has a milky, slightly bitter taste.
+                    </p>
+                </div>
+                <div class="details" id="details-milk" data-category="milk">
+                        <p class="detail" data-parent-category="milk" data-category="milktea">
+                            The regular milk tea in the market is made with non-dairy creamer to create a rich and creamy texture and flavor.
+                        </p>
+                        <p class="detail" data-parent-category="milk" data-category="latte">
+                            Tea latte is made with real dairy or non-dairy milk. A hot tea latte, like cafe lattes, is typically made with steamed milk. It can also be served cold, which sometimes is called ‘Fresh Milk Tea’.
+                        </p>
+                    </div>
+                <div class="details" id="details-tea" data-category="tea">
+                        <p class="detail" data-parent-category="tea" data-category="black">
+                            Black tea is the most classic, and by far, the most popular tea base for bubble tea. If it's your first time having bubble tea or if you're not really in the adventurous mood, this is a great starter drink. 
+                        </p>
+                        <p class="detail" data-parent-category="tea" data-category="green">
+                            Jasmine green tea and matcha powder are the two major green tea options for bubble tea. This is another flavor for tea lovers who prefer green tea over black tea.
+                        </p>
+                        <p class="detail" data-parent-category="tea" data-category="oolong">
+                            Oolong is also one of the most prevalent base teas for bubble tea. The amount of caffeine it contains is greater than green tea but less than black tea.
+                        </p>
+                    </div>
+            </div>
+            <div class="illo-wrapper">
+                    <div class="illo-wrapper-after">
+                         <button id="btn-info" type="button">?</button>
+                    </div>
+                    <!-- component navigation -->
+                    <nav class="nav-anatomy">
+                            <a class="anatomy-item" id="btn-topping" href="#sec2-sub-1" data-section-index = "1" data-category="topping">topping</a><br>
+                            <a class="anatomy-item" id="btn-milk" href="#sec2-sub-2" data-section-index = "2" data-category="milk">milk</a> <br>
+                            <a class="anatomy-item" id="btn-tea" href="#sec2-sub-3" data-section-index = "3" data-category="tea">tea</a>
+                    </nav>
+                    <!-- history button -->
+                
+                    <ul class="sub-menu" id="topping-menu" data-category="topping">
+                        <li class="sub-menu-btn" date-parent-category="topping" data-category="tapioca">tapioca</li>
+                        <li class="sub-menu-btn" date-parent-category="topping" data-category="pudding">pudding</li>
+                        <li class="sub-menu-btn" date-parent-category="topping" data-category="redbean">red bean</li>
+                        <li class="sub-menu-btn" date-parent-category="topping" data-category="nata">coconut jelly</li>
+                        <li class="sub-menu-btn" date-parent-category="topping" data-category="herbal">grass jelly</li>
+                    </ul>
+                    
+                    <ul class="sub-menu" id="milk-menu" data-category="milk">
+                        <li class="sub-menu-btn" date-parent-category="milk" data-category="milktea">milk tea</li>
+                        <li class="sub-menu-btn" date-parent-category="milk" data-category="latte">latte</li>
+                    </ul>
+
+                    <ul class="sub-menu" id="tea-menu" data-category="tea">
+                            <li class="sub-menu-btn" date-parent-category="tea" data-category="black">black tea</li>
+                            <li class="sub-menu-btn" date-parent-category="tea" data-category="green">green tea</li>
+                            <li class="sub-menu-btn" date-parent-category="tea" data-category="oolong">oolong</li>
+                    </ul>
+
+
+                    <!-- svg -->
+                    <div class=illo-subcontainer>
+                        
+
+                        <div class="cup-wrapper">
+                                <svg id="illo-cup-fill" class="illo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 672.49 1085.09">
+                                    <!-- cup fill-->   
+                                    <path vector-effect="non-scaling-stroke" id="cup_fill" data-name="cup fill" class="cls-3" d="M651.61,239.13H20.88a18.34,18.34,0,0,0,0,36.67h13.3l97.35,776.14a9.82,9.82,0,0,0,9.75,8.6h4.28l2.89,16.37a6.84,6.84,0,0,0,6.73,5.64H517.31a6.83,6.83,0,0,0,6.73-5.64l2.89-16.37h4.29a9.81,9.81,0,0,0,9.74-8.6L638.31,275.8h13.3a18.34,18.34,0,1,0,0-36.67Z"/>
+                                </svg> 
+
+                                <svg id="illo-straw" class="illo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 672.49 1085.09">
+                                    <!-- straw -->   
+                                    <g id="straw"><polygon vector-effect="non-scaling-stroke" class="cls-4" points="378.77 905.64 293.72 873.91 293.72 2.55 378.77 2.55 378.77 905.64"/><line vector-effect="non-scaling-stroke" class="cls-4" x1="314.61" y1="22.7" x2="314.61" y2="748.49"/></g>
+                                </svg>
+                                
+                                <svg id="illo-milk" class="illo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 672.49 1085.09">
+                                    <!-- milk --> 
+                                    <polygon vector-effect="non-scaling-stroke" id="milk" class="cls-7" points="570.7 814.85 622.67 400.48 49.82 400.48 101.79 814.85 570.7 814.85"/>
+                                    <!-- milk halftone --> 
+                                    <polygon id="milk-halftone" vector-effect="non-scaling-stroke" class="cls-10" points="570.7 814.85 622.67 400.48 49.82 400.48 101.79 814.85 570.7 814.85"/>
+                                </svg>
+
+                                <svg id="illo-tea" class="illo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 672.49 1085.09">  
+                                    <!-- tea --> 
+                                    <path vector-effect="non-scaling-stroke" id="tea" class="cls-6" d="M102.94,824l28.77,229.4a8.14,8.14,0,0,0,8.09,7.13H532.7a8.14,8.14,0,0,0,8.08-7.13L569.55,824a8.15,8.15,0,0,0-8.08-9.16H111A8.15,8.15,0,0,0,102.94,824Z"/>
+                                    <!-- tea halftone--> 
+                                    <polygon id="tea-halftone" vector-effect="non-scaling-stroke" class="cls-9" points="101.79 814.85 132.61 1060.54 539.89 1060.54 570.7 814.85 101.79 814.85"/>
+                                </svg>
+                                
+                                <svg id="illo-cup-outline" class="illo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 672.49 1085.09">
+                                    <!-- cup outline -->
+                                    <g vector-effect="non-scaling-stroke" data-name="cup outline" vector-effect="non-scaling-stroke"><line vector-effect="non-scaling-stroke" class="cls-5" x1="618.61" y1="275.8" x2="140.84" y2="275.8"/><line vector-effect="non-scaling-stroke" class="cls-5" x1="31.88" y1="257.46" x2="336.25" y2="257.46"/><path vector-effect="non-scaling-stroke" class="cls-5" d="M145.56,1060.54l2.89,16.37a6.84,6.84,0,0,0,6.73,5.64H517.31a6.83,6.83,0,0,0,6.73-5.64l2.89-16.37"/><path vector-effect="non-scaling-stroke" class="cls-5" d="M31.88,275.8h-11A18.39,18.39,0,0,1,2.55,257.46h0a18.39,18.39,0,0,1,18.33-18.33H651.61A18.39,18.39,0,0,1,670,257.46h0a18.39,18.39,0,0,1-18.34,18.34h-13.3L541,1051.94a9.81,9.81,0,0,1-9.74,8.6H141.28a9.82,9.82,0,0,1-9.75-8.6L34.18,275.8Z"/><line vector-effect="non-scaling-stroke" class="cls-5" x1="68.25" y1="324.61" x2="153.28" y2="1033.2"/><line vector-effect="non-scaling-stroke" class="cls-5" x1="527.61" y1="257.46" x2="497.6" y2="257.46"/><line vector-effect="non-scaling-stroke" class="cls-5" x1="644.28" y1="257.46" x2="552.92" y2="257.46"/></g>
+                                </svg>
+
+                                <svg id="halftone"><defs>
+                                        <pattern id="halftone-2" data-name="halftone-2" width="3" height="3" patternTransform="translate(304.7 139.14) scale(3.67)" patternUnits="userSpaceOnUse" viewBox="0 0 3 3"><rect class="cls-1" width="3" height="3"/><circle class="cls-2" cx="1.5" cy="1.5" r="1"/></pattern>
+                                        <pattern id="halftone-1" data-name="halftone-1" width="6" height="6" patternTransform="translate(590.73 -11.21) scale(3.5)" patternUnits="userSpaceOnUse" viewBox="0 0 6 6"><rect class="cls-1" width="6" height="6"/><circle class="cls-2" cx="3" cy="3" r="1"/></pattern>
+                                </defs></svg>
+                        </div><div class="topping-wrapper-wrapper">
+                                <div class="topping-wrapper">             
+                                    <!-- tapioca -->
+                                    <svg id="illo-pearl" class="active illo topping " data-category="tapioca" x="0px" y="0px"
+                                        viewBox="0 0 672.5 1085.1" style="enable-background:new 0 0 672.5 1085.1;" xml:space="preserve">
+                            
+                                        <pattern  y="1085.1" width="3" height="3" patternUnits="userSpaceOnUse" id="halftone-11" viewBox="0 -3 3 3" style="overflow:visible;">
+                                            <g>
+                                                <rect y="-3" class="st0" width="3" height="3"/>
+                                                <circle vector-effect="non-scaling-stroke"id="XMLID_347_" class="st1" cx="1.5" cy="-1.5" r="1"/>
+                                            </g>
+                                        </pattern>
+                                        <g class="pearl-1">
+                                            <circle vector-effect="non-scaling-stroke"id="XMLID_2_" class="st2" cx="266" cy="916.5" r="55"/>
+                                            
+                                                <pattern  id="pearl-halftone_3_" xlink:href="#halftone-11" patternTransform="matrix(-2.4534 -2.3669 2.3669 -2.4534 -6679.1841 -49164.5312)">
+                                            </pattern>
+                                            <circle vector-effect="non-scaling-stroke"id="pearl-halftone" class="st3" cx="266" cy="916.5" r="55"/>
+                                        </g>
+                                        <g class="pearl-2">
+                                            <circle vector-effect="non-scaling-stroke"id="XMLID_1_" class="st2" cx="362.4" cy="634.2" r="55"/>
+                                            
+                                                <pattern  id="pearl-halftone_4_" xlink:href="#halftone-11" patternTransform="matrix(-2.4536 -2.367 2.367 -2.4536 -6701.3413 -49180.0625)">
+                                            </pattern>
+                                            <circle vector-effect="non-scaling-stroke"id="pearl-halftone_1_" class="st4" cx="362.4" cy="634.2" r="55"/>
+                                        </g>
+                                        <g class="pearl-3">
+                                            <circle vector-effect="non-scaling-stroke"id="XMLID_5_" class="st2" cx="458" cy="803.1" r="55"/>
+                                            
+                                                <pattern  id="pearl-halftone_5_" xlink:href="#halftone-11" patternTransform="matrix(-2.4536 -2.367 2.367 -2.4536 -6695.5474 -49183.2031)">
+                                            </pattern>
+                                            <circle vector-effect="non-scaling-stroke"id="pearl-halftone_2_" class="st5" cx="458" cy="803.1" r="55"/>
+                                        </g>
+                                    </svg>
+                                    <!-- pudding -->
+                                    <svg id="illo-pudding" class="illo topping" data-category="pudding" x="0px" y="0px"
+                                        viewBox="0 0 672.5 1085.1" style="enable-background:new 0 0 672.5 1085.1;" xml:space="preserve">
+        
+                                        <g id="pudding">
+                                                <!-- pudding halftone -->
+                                            <pattern  y="1085.1" width="14" height="14" patternUnits="userSpaceOnUse" id="New_Pattern" viewBox="0 -14 14 14" style="overflow:visible;">
+                                                <g>
+                                                    <rect y="-14" class="st0" width="14" height="14"/>
+                                                    <circle id="XMLID_4_" class="st1" cx="7" cy="-7" r="1"/>
+                                                </g>
+                                            </pattern>
+                                            <pattern  y="1085.1" width="6" height="6" patternUnits="userSpaceOnUse" id="halftone-3" viewBox="0 -6 6 6" style="overflow:visible;">
+                                            <g>
+                                                <rect x="0" y="-6" class="st0" width="6" height="6"/>
+                                                <circle id="XMLID_7_" class="st1" cx="3" cy="-3" r="3"/>
+                                            </g>
+                                            </pattern>
+                                            <g id="pudding_outline">
+                                                <path vector-effect="non-scaling-stroke"id="XMLID_1187_" class="st2" d="M174.6,675.3l34.6,190.4l271.5,0l34.6-190.4c0.5-3-1.8-5.7-4.8-5.7l-331.2,0
+                                                    C176.3,669.6,174,672.3,174.6,675.3z"/>
+                                                <path vector-effect="non-scaling-stroke"id="XMLID_1186_" class="st2" d="M224.8,891.5l240.2,0c6.3,0,11.8-4.5,12.9-10.8l2.7-15.1l-271.5,0l2.7,15.1
+                                                    C213,887,218.5,891.5,224.8,891.5z"/>
+                                            </g>
+                                            <g id="pd-halftone_fill">
+                                                <path vector-effect="non-scaling-stroke"id="XMLID_1_" class="st4" d="M224.8,891.5l240.2,0c6.3,0,11.8-4.5,12.9-10.8l2.7-15.1l-271.5,0l2.7,15.1
+                                                    C213,887,218.5,891.5,224.8,891.5z"/>
+                                                <pattern  id="halftone-5" xlink:href="#New_Pattern" patternTransform="matrix(1.44 0 0 1.44 3723.7251 3789.9531) scale(1.2)">
+                                                </pattern>
+                                                <path vector-effect="non-scaling-stroke"id="XMLID_1182_" class="st-pudding" d="M174.6,675.3l34.6,190.4l271.5,0l34.6-190.4c0.5-3-1.8-5.7-4.8-5.7l-331.2,0
+                                                    C176.3,669.6,174,672.3,174.6,675.3z"/>
+                                            </g>
+                                        </g>
+                                    </svg>                           
+                                    <!-- herbal jelly -->
+                                    <svg id="illo-herbal" class="illo topping" data-category="herbal" x="0px" y="0px"
+                                    viewBox="0 0 672.5 1085.1" style="enable-background:new 0 0 672.5 1085.1;" xml:space="preserve">
+                                        <g class="herbal">
+                                        <!-- herbal jelly halftone -->
+                                            <pattern  y="1085.1" width="3" height="3" patternTransform="scale(2)" patternUnits="userSpaceOnUse" id="halftone-6" viewBox="0 -3 3 3" style="overflow:visible;">
+                                                <g>
+                                                    <rect y="-3" class="st0" width="3" height="3"/>
+                                                    <circle id="XMLID_347_" class="st1" cx="1.5" cy="-1.5" r="1"/>
+                                                </g>
+                                            </pattern>
+                                            <g id="XMLID_1295_">
+                                                <rect id="XMLID_1298_" x="281.1" y="741.1" class="st2" width="105.9" height="105.9"/>
+                                                <polygon vector-effect="non-scaling-stroke" id="XMLID_1297_" class="st2" points="414.9,819.2 387,847 387,741.1 414.9,713.2 		"/>
+                                                <polygon vector-effect="non-scaling-stroke" id="XMLID_1296_" class="st2" points="387,741.1 281.1,741.1 309,713.2 414.9,713.2 		"/>
+                                            </g>
+                                            <polygon vector-effect="non-scaling-stroke" id="XMLID_1299_" class="st6" points="309,713.2 281.1,741.1 281.1,847 387,847 414.9,819.2 414.9,713.2 	"/>
+                                        </g>
+                                        <g class="herbal">
+                                                <!-- herbal jelly halftone -->
+                                                <g id="XMLID_1295_">
+                                                    <rect id="XMLID_1298_" x="281.1" y="741.1" class="st2" width="105.9" height="105.9"/>
+                                                    <polygon vector-effect="non-scaling-stroke" id="XMLID_1297_" class="st2" points="414.9,819.2 387,847 387,741.1 414.9,713.2 		"/>
+                                                    <polygon vector-effect="non-scaling-stroke" id="XMLID_1296_" class="st2" points="387,741.1 281.1,741.1 309,713.2 414.9,713.2 		"/>
+                                                </g>
+                                                <polygon vector-effect="non-scaling-stroke" id="XMLID_1299_" class="st6" points="309,713.2 281.1,741.1 281.1,847 387,847 414.9,819.2 414.9,713.2 	"/>
+                                        </g>
+                                        <g class="herbal">
+                                                <!-- herbal jelly halftone -->
+                                                <g id="XMLID_1295_">
+                                                    <rect id="XMLID_1298_" x="281.1" y="741.1" class="st2" width="105.9" height="105.9"/>
+                                                    <polygon vector-effect="non-scaling-stroke" id="XMLID_1297_" class="st2" points="414.9,819.2 387,847 387,741.1 414.9,713.2 		"/>
+                                                    <polygon vector-effect="non-scaling-stroke" id="XMLID_1296_" class="st2" points="387,741.1 281.1,741.1 309,713.2 414.9,713.2 		"/>
+                                                </g>
+                                                <pattern id="halftone-6" xlink:href="#halftone-6" patternTransform="matrix(1.985 0.9091 -0.9091 1.985 -201.6854 15742.3262)">
+                                                </pattern>
+                                                <polygon vector-effect="non-scaling-stroke" id="XMLID_1299_" class="st6" points="309,713.2 281.1,741.1 281.1,847 387,847 414.9,819.2 414.9,713.2 	"/>
+                                        </g>
+                                    </svg>
+                                    <!-- red bean -->
+                                    <svg id="illo-redbean" class="illo topping " data-category="redbean" x="0px" y="0px"
+                                    viewBox="0 0 672.5 1085.1" style="enable-background:new 0 0 672.5 1085.1;" xml:space="preserve">
+                                            <!-- red bean halftone -->
+                                            <pattern  y="1085.1" width="6" height="6" patternUnits="userSpaceOnUse" id="halftone-7" viewBox="0 -6 6 6" style="overflow:visible;">
+                                                <g>
+                                                    <rect y="-6" class="st0" width="6" height="6"/>
+                                                    <circle id="XMLID_3_" class="st1" cx="3" cy="-3" r="1"/>
+                                                </g>
+                                            </pattern>
+                                                <g class="bean">
+                                                    <path class="st2" vector-effect="non-scaling-stroke" d="M273,810.3L273,810.3c-10.5-7.2-13.2-21.6-6-32.1l15.7-23c7.2-10.5,21.6-13.2,32.1-6h0
+                                                        c10.5,7.2,13.2,21.6,6,32.1l-15.7,23C297.9,814.7,283.5,817.4,273,810.3z"/>
+                                                    <line vector-effect="non-scaling-stroke" class="st7" vector-effect="non-scaling-stroke" x1="293.9" y1="759.7" x2="279.4" y2="780.9"/>
+                                                </g>
+                                                <g class="bean">
+                                                    <path class="st2" vector-effect="non-scaling-stroke" d="M391.7,837L391.7,837c-10.1,7.7-24.6,5.8-32.3-4.3l-17-22.1c-7.7-10.1-5.8-24.6,4.3-32.3l0,0
+                                                        c10.1-7.7,24.6-5.8,32.3,4.3l17,22.1C403.7,814.7,401.7,829.3,391.7,837z"/>
+                                                    <line vector-effect="non-scaling-stroke" class="st7" vector-effect="non-scaling-stroke" x1="350.1" y1="801.3" x2="365.8" y2="821.7"/>
+                                                </g>
+                                                <g class="bean">
+                                                    <path class="st2" vector-effect="non-scaling-stroke" d="M226.9,945.5L226.9,945.5c-11.5-5.4-16.5-19.2-11.2-30.7l11.8-25.2c5.4-11.5,19.2-16.5,30.7-11.2l0,0
+                                                        c11.5,5.4,16.5,19.2,11.2,30.7l-11.8,25.2C252.2,945.8,238.4,950.9,226.9,945.5z"/>
+                                                    <line vector-effect="non-scaling-stroke" class="st7" vector-effect="non-scaling-stroke"  x1="239.4" y1="892.1" x2="228.5" y2="915.4"/>
+                                                </g>
+                                                <g class="bean">
+                                                    <path class="st2" vector-effect="non-scaling-stroke"  d="M334.4,889.1L334.4,889.1c-9.8,8.1-24.4,6.7-32.5-3.1l-17.7-21.5c-8.1-9.8-6.7-24.4,3.1-32.5l0,0
+                                                        c9.8-8.1,24.4-6.7,32.5,3.1l17.7,21.5C345.6,866.5,344.2,881.1,334.4,889.1z"/>
+                                                    <line vector-effect="non-scaling-stroke" class="st7" vector-effect="non-scaling-stroke" x1="291.6" y1="854.9" x2="308" y2="874.8"/>
+                                                </g>
+                                                <g class="bean">
+                                                    <path class="st2" vector-effect="non-scaling-stroke" d="M479.8,949.7L479.8,949.7c-9.8,8.1-24.4,6.7-32.5-3.1l-17.7-21.5c-8.1-9.8-6.7-24.4,3.1-32.5h0
+                                                        c9.8-8.1,24.4-6.7,32.5,3.1l17.7,21.5C491,927,489.6,941.7,479.8,949.7z"/>
+                                                    <line vector-effect="non-scaling-stroke" class="st7" vector-effect="non-scaling-stroke" x1="437" y1="915.5" x2="453.4" y2="935.3"/>
+                                                </g>
+                                                <g class="bean">
+                                                    <path class="st2" vector-effect="non-scaling-stroke" d="M379,934.5L379,934.5c-12.7-0.4-22.7-11.2-22.2-23.9l1-27.8c0.4-12.7,11.2-22.7,23.9-22.2h0
+                                                        c12.7,0.4,22.7,11.2,22.2,23.9l-1,27.8C402.4,925,391.7,935,379,934.5z"/>
+                                                    <line vector-effect="non-scaling-stroke" class="st7" vector-effect="non-scaling-stroke"  x1="369.6" y1="880.6" x2="368.7" y2="906.3"/>
+                                                </g>
+                                                <g class="bean">
+                                                    <path class="st2" vector-effect="non-scaling-stroke" d="M367.6,647.8L367.6,647.8c2.5-12.4,14.7-20.6,27.2-18l27.3,5.5c12.4,2.5,20.6,14.7,18,27.2l0,0
+                                                        c-2.5,12.4-14.7,20.6-27.2,18l-27.3-5.5C373.2,672.4,365.1,660.2,367.6,647.8z"/>
+                                                    <line vector-effect="non-scaling-stroke" class="st7" vector-effect="non-scaling-stroke" x1="422.4" y1="647.4" x2="397.2" y2="642.3"/>
+                                                </g>
+                                                <g class="bean">
+                                                    <path class="st2" vector-effect="non-scaling-stroke" d="M281.5,966.3L281.5,966.3c-7.7-10.1-5.7-24.6,4.3-32.3l22.1-16.9c10.1-7.7,24.6-5.7,32.3,4.3l0,0
+                                                        c7.7,10.1,5.7,24.6-4.3,32.3l-22.1,16.9C303.7,978.4,289.2,976.4,281.5,966.3z"/>
+                                                    <line vector-effect="non-scaling-stroke" class="st7" vector-effect="non-scaling-stroke" x1="317.3" y1="924.8" x2="296.8" y2="940.4"/>
+                                                </g>
+                                            <g id="RB-halftone">
+                                                <path class="st8" vector-effect="non-scaling-stroke" d="M273,810.3L273,810.3c-10.5-7.2-13.2-21.6-6-32.1l15.7-23c7.2-10.5,21.6-13.2,32.1-6h0
+                                                    c10.5,7.2,13.2,21.6,6,32.1l-15.7,23C297.9,814.7,283.5,817.4,273,810.3z"/>
+                                                <path class="st8" vector-effect="non-scaling-stroke" d="M391.7,837L391.7,837c-10.1,7.7-24.6,5.8-32.3-4.3l-17-22.1c-7.7-10.1-5.8-24.6,4.3-32.3l0,0
+                                                    c10.1-7.7,24.6-5.8,32.3,4.3l17,22.1C403.7,814.7,401.7,829.3,391.7,837z"/>
+                                                <path class="st8" vector-effect="non-scaling-stroke" d="M226.9,945.5L226.9,945.5c-11.5-5.4-16.5-19.2-11.2-30.7l11.8-25.2c5.4-11.5,19.2-16.5,30.7-11.2l0,0
+                                                    c11.5,5.4,16.5,19.2,11.2,30.7l-11.8,25.2C252.2,945.8,238.4,950.9,226.9,945.5z"/>
+                                                <path class="st8" vector-effect="non-scaling-stroke" d="M334.4,889.1L334.4,889.1c-9.8,8.1-24.4,6.7-32.5-3.1l-17.7-21.5c-8.1-9.8-6.7-24.4,3.1-32.5l0,0
+                                                    c9.8-8.1,24.4-6.7,32.5,3.1l17.7,21.5C345.6,866.5,344.2,881.1,334.4,889.1z"/>
+                                                <path class="st8" vector-effect="non-scaling-stroke" d="M479.8,949.7L479.8,949.7c-9.8,8.1-24.4,6.7-32.5-3.1l-17.7-21.5c-8.1-9.8-6.7-24.4,3.1-32.5h0
+                                                    c9.8-8.1,24.4-6.7,32.5,3.1l17.7,21.5C491,927,489.6,941.7,479.8,949.7z"/>
+                                                <path class="st8" vector-effect="non-scaling-stroke"  d="M379,934.5L379,934.5c-12.7-0.4-22.7-11.2-22.2-23.9l1-27.8c0.4-12.7,11.2-22.7,23.9-22.2h0
+                                                    c12.7,0.4,22.7,11.2,22.2,23.9l-1,27.8C402.4,925,391.7,935,379,934.5z"/>
+                                                <path class="st8" vector-effect="non-scaling-stroke" d="M367.6,647.8L367.6,647.8c2.5-12.4,14.7-20.6,27.2-18l27.3,5.5c12.4,2.5,20.6,14.7,18,27.2l0,0
+                                                    c-2.5,12.4-14.7,20.6-27.2,18l-27.3-5.5C373.2,672.4,365.1,660.2,367.6,647.8z"/>
+                                                <path class="st8" vector-effect="non-scaling-stroke"  d="M281.5,966.3L281.5,966.3c-7.7-10.1-5.7-24.6,4.3-32.3l22.1-16.9c10.1-7.7,24.6-5.7,32.3,4.3l0,0
+                                                    c7.7,10.1,5.7,24.6-4.3,32.3l-22.1,16.9C303.7,978.4,289.2,976.4,281.5,966.3z"/>
+                                            </g>
+                                        
+                                    </svg>
+                                    <!-- nata jelly -->
+                                    <svg id="illo-nata" class="illo topping" data-category="nata" x="0px" y="0px"
+                                        viewBox="0 0 672.5 1085.1" style="enable-background:new 0 0 672.5 1085.1;" xml:space="preserve">
+                                        <!-- nata -->
+                                        <g class="nata">
+                                            <polygon vector-effect="non-scaling-stroke" class="st9" vector-effect="non-scaling-stroke" points="380.6,838 380.6,726.7 331.1,726.7 309.8,742 309.8,853.3 359.3,853.3 	"/>
+                                            <line vector-effect="non-scaling-stroke" class="st10" vector-effect="non-scaling-stroke" x1="309.8" y1="742" x2="359.3" y2="742"/>
+                                            <line vector-effect="non-scaling-stroke" class="st10" vector-effect="non-scaling-stroke"  x1="380.6" y1="726.7" x2="359.3" y2="742"/>
+                                            <line vector-effect="non-scaling-stroke" class="st10" vector-effect="non-scaling-stroke" x1="359.3" y1="742" x2="359.3" y2="853.3"/>
+                                        </g>
+                                        <g class="nata">
+                                            <polygon vector-effect="non-scaling-stroke" class="st9" vector-effect="non-scaling-stroke" points="380.6,838 380.6,726.7 331.1,726.7 309.8,742 309.8,853.3 359.3,853.3 	"/>
+                                            <line vector-effect="non-scaling-stroke" class="st10" vector-effect="non-scaling-stroke" x1="309.8" y1="742" x2="359.3" y2="742"/>
+                                            <line vector-effect="non-scaling-stroke" class="st10" vector-effect="non-scaling-stroke"  x1="380.6" y1="726.7" x2="359.3" y2="742"/>
+                                            <line vector-effect="non-scaling-stroke" class="st10" vector-effect="non-scaling-stroke" x1="359.3" y1="742" x2="359.3" y2="853.3"/>
+                                        </g>
+                                        <g class="nata">
+                                            <polygon vector-effect="non-scaling-stroke" class="st9" vector-effect="non-scaling-stroke" points="380.6,838 380.6,726.7 331.1,726.7 309.8,742 309.8,853.3 359.3,853.3 	"/>
+                                            <line vector-effect="non-scaling-stroke" class="st10" vector-effect="non-scaling-stroke" x1="309.8" y1="742" x2="359.3" y2="742"/>
+                                            <line vector-effect="non-scaling-stroke" class="st10" vector-effect="non-scaling-stroke"  x1="380.6" y1="726.7" x2="359.3" y2="742"/>
+                                            <line vector-effect="non-scaling-stroke" class="st10" vector-effect="non-scaling-stroke" x1="359.3" y1="742" x2="359.3" y2="853.3"/>
+                                        </g>
+                                    </svg>
+                                 </div>
+                                </div>
+                    </div>
+
+                   
+            </div>
+        </section>
+
+        <section id="section-2" data-section-name="research">
+            <div id="div-bg"></div>
+            <section class="sub-section" id="sec2-sub-1" data-section-index = "1" ></section>
+            <section class="sub-section" id="sec2-sub-2" data-section-index = "2" ></section>
+            <section class="sub-section" id="sec2-sub-3" data-section-index = "3" ></section>
+        </section>
+
+        <section id="section-3" data-section-name="find">
+            <button id="showall">
+                show all
+            </button>
+            <section class="sub-section" id="sec3-sub-1" data-section-index = "4">
+                <div id="map"></div>
+                <div class="shop-wrapper">
+                    <div class="shop" data-index="0">
+                        <div class="shop-index">01</div>
+                        <div class="shop-name">Boba Guys</div>
+                        <div><a class="shop-web" href="https://www.bobaguys.com" target="_blank">bobaguys.com</a></div>
+                        <button class="btn-show">show on map</button>
+                        <p class="shop-detail">This San Franciscan company has gone cross-country with stores on the Lower East Side, Greenwich Village and Canal Street Market. Pushing aside powders, their drinks go all natural with tea leaves, organic milk and house-made syrups. Menu lists range from classic milk tea and Jasmine milk tea to their Dirty Horchata, topped with espresso, and the Strawberry Matcha Latte.</p>
+                    </div>
+
+                    <div class="shop" data-index="1">
+                            <div class="shop-index">02</div>
+                            <div class="shop-name">Gong Cha</div>
+                            <div><a class="shop-web" href="https://www.gongchausa.com" target="_blank">gongchausa.com</a></div>
+                            <button class="btn-show">show on map</button>
+                            <p class="shop-detail">Their house brand specialty is what’s called a “milk foam,” described as a “slightly salted cream that sits on top of freshly brewed tea.” As for the Taiwan-sourced teas, popular flavors are the Pearl Milk Tea (their version of black milk tea), Milk Foam Green Tea, Taro Milk Tea and Lychee Oolong.</p>
+                    </div>
+
+                    <div class="shop" data-index="2">
+                            <div class="shop-index">03</div>
+                            <div class="shop-name">Tiger Sugar</div>
+                            <div><a class="shop-web" href="https://en.tigersugar.com" target="_blank">en.tigersugar.com</a></div>
+                            <button class="btn-show">show on map</button>
+                            <p class="shop-detail">This cult-favorite Taiwanese chain attracted lines up to three hours long at its first North American foray in Flushing, Queens. Devoted Tiger Sugar fans clamor for the brown sugar boba milk with cream mousse, whose tiger-like stripes of dark brown sugar syrup and milky tea dripping down the sides of the cup make it a photogenic bestseller.</p>
+                    </div>
+
+                    <div class="shop" data-index="3">
+                            <div class="shop-index">04</div>
+                            <div class="shop-name">YiFang Taiwan Fruit Tea</div>
+                            <div><a class="shop-web" href="https://www.yifangteausa.com" target="_blank">yifangteausa.com</a></div>
+                            <button class="btn-show">show on map</button>
+                            <p class="shop-detail">Yi Fang’s niche is fresh fruit tea that originated from the founder’s great grandma’s recipe on a pineapple farm in Taiwan. The signature Yi Fang fruit tea contains fresh orange, apple, pineapple, and passionfruit. The most popular topping is limited-batch, brown sugar pearls; they’re served after 1 p.m. until the store runs out, and unlike other drinks here, the sweetness and ice levels are fixed. The other, customizable drinks here tend to go hard on the sugar, so scale down on sweetness.</p>
+                    </div>
+
+                    <div class="shop" data-index="4">
+                            <div class="shop-index">05</div>
+                            <div class="shop-name">CoCo Fresh Tea & Juice</div>
+                            <div><a class="shop-web" href="https://www.cocobubbletea.com" target="_blank">cocobubbletea.com</a></div>
+                            <button class="btn-show">show on map</button>
+                            <p class="shop-detail">With 22 stores throughout NYC, this global brand from Taiwan switches up the teas stateside by introducing drinks that suit American palettes. As for customers on this side of the globe, they apparently savor their nutty taro milk tea and floral Jasmine milk tea. And tapioca bubbles are kept within their optimal taste period to make certain they’re nice and chewy.</p>
+                    </div>
+
+                    <div class="shop" data-index="5">
+                            <div class="shop-index">06</div>
+                            <div class="shop-name">Kung Fu Tea</div>
+                            <div><a class="shop-web" href="https://www.kungfutea.com" target="_blank">kungfutea.com</a></div>
+                            <button class="btn-show">show on map</button>
+                            <p class="shop-detail">Founded by three friends in Flushing in 2009, this chain has developed into the Starbucks of bubble tea, with more than 100 locations nationwide. Kung Fu Tea offers simple, standard milk teas made with tea, milk powder, and bubbles cooked every two hours. The menu includes less ubiquitous offerings like wintermelon milk green tea, purple taro, sweet red-bean slush, and yogurt-based drinks made with the tart Japanese Yakult drink.</p>
+                    </div>
+
+                    <div class="shop" data-index="6">
+                            <div class="shop-index">07</div>
+                            <div class="shop-name">KOI Thé</div>
+                            <div><a class="shop-web" href="https://www.koithe.com/en" target="_blank">koithe.com/en</a></div>
+                            <button class="btn-show">show on map</button>
+                            <p class="shop-detail">Koi Thé with locations across Asia and the U.S., now has a shop on a busy corner of Bleecker Street and MacDougal, in Greenwich Village. Just look for the giant cup of a bubble tea in front with the shop’s signature golden bubbles. Koi Thé is also known for its macchiato teas in flavors like black, green, mango and peach. Other offerings include tea latte, milk tea and “chewy” tea. Other flavored teas include Jasmine Green Tea, Assam Black Tea and Plum Green Tea.</p>
+                    </div>
+
+                    <div class="shop" data-index="7">
+                        <div class="shop-index">08</div>
+                        <div class="shop-name">Tea and Milk</div>
+                        <div><a class="shop-web" href="https://teaandmilk.com" target="_blank">teaandmilk.com/</a></div>
+                            <button class="btn-show">show on map</button>
+                        <p class="shop-detail">This cozy Astoria storefront also skips artificial ingredients and instead uses teas from all over the world, along with spices and fruits. Their Signature Taro Root Milk Tea mingles pureed taro with black tea nicely, while their Roasted Oolong Tea with Signature Cream unleashes creamy goodness upon a good shaking.</p>
+                    </div>
+                
+                </div>
+            </section>
+            <section class="sub-section" id="sec3-sub-2" data-section-index = "5">
+                <div class="submit-container">
+                    <h2 class="bg-text-2">know a<br>place?</h2>
+                    <p>Didn't see your favorite bubble tea shop on the map?
+                       <a id="shoutout"><span id="shoutout-fill"></span>Give us a shout!</a>
+                       <br>
+                       Our bubble tea directory will grow with your contributions</p>
+                </div>
+                
+                <div class="form-wrapper">
+                    
+                     <div class="form-scroll-wrapper">
+                         <form class="form" id="form1">
+                                <div class="input-block">
+                                    <label class="form-label" name="email">your email</label>
+                                    <input name="email" type="text" id="email" placeholder="" />
+                                </div>
+                                
+                                <div class="input-block">
+                                    <label class="form-label" name="name">name of the place</label>
+                                    <input name="name" type="text" id="name" placeholder=""/>
+                                </div>
+                                        
+                                <div class="input-block">
+                                    <label class="form-label" name="location">location of the place</label>
+                                    <input name="location" type="text" id="location" placeholder="" />
+                                </div>
+                                <div class="spacer"></div>
+                                <div class="input-block">
+                                    <label class="form-label" name="email">what do you like about this place? (optional)</label>
+                                    <textarea name="text" id="comment" placeholder=""></textarea>
+                                </div>
+                                
+                                <div class="submit-wrapper"><input type="submit" id="submit" value="send" /></div>
+                          </form>
+                     </div>
+
+                      <button class="btn-cancel" id="cancel-form">
+                            <div class="btn-cancel-bar"></div>
+                            <div class="btn-cancel-bar"></div>
+                      </button>
+                </div>
+
+            </section>
+        </section>
+
+
+         <!-- map -->
+        <script src="js/script_map.js" tyle="text/javascript" ></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAW_HOU1OMXZikPYkOjWr0NfVjM5RDVYI0&libraries=places&callback=initMap">
+        </script>
+        <!-- my javascript -->
+        <script src="js/script.js" type="text/javascript" async defer></script>
+      
+    </body>
+</html>
