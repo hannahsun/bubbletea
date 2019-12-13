@@ -23,33 +23,6 @@
 
         <!-- custom cursor -->
         <div id="mycursor"></div>
-        <script>
-            $(document).on('mousemove', function(e) {
-                $('#mycursor').css({
-                    left: e.clientX,
-                    top: e.clientY,
-                    });
-                });
-                
-                $(window).mousemove(function(e) {
-                    $("a, button, .sub-menu-btn, .section-nav-item, .btn-cancel, .bg-text-2, #nav-toggle, .nav-item, #submit")
-                        .on("mouseenter", function() {   
-                            $('#mycursor').addClass("pointer")})
-                        .on("mouseleave", function() {   
-                            $('#mycursor').removeClass("pointer")});
-                    $(".nav-wrapper, #map, #sec3-sub-2, .form, .form-wrapper")
-                        .on("mouseenter", function() {   
-                            $('#mycursor').addClass("simple")})
-                        .on("mouseleave", function() {   
-                            $('#mycursor').removeClass("simple")});
-                    $(".sidemenu")
-                        .on("mouseenter", function() {   
-                            $('#mycursor').addClass("back")})
-                        .on("mouseleave", function() {   
-                            $('#mycursor').removeClass("back")});
-                });
-            
-        </script>
 
     </head>
     <body>
@@ -66,7 +39,7 @@
                     <li class="nav-item" data-menu="feedback">feedback</li>
                 </ul>
                 <div class="sidemenu about-container">
-                        <div class="about-detail">
+                        <div class="sidemenu-detail about-detail">
                                 <h2>About</h2><br>
                                 This site is a starter guide for bubble tea first-timers to get familiar with the world of bubble tea as well as a platform that collects and sifts out quality bubble tea shops to share with the community.<br>
                                 If you wish to see any other bubble tea related information on this site, feel free to shoot us a message, and we’ll add it to our list.<br><br><br>
@@ -86,13 +59,23 @@
                                 </div>
                         </div>         
                     </div>
-    
+                <div class="sidemenu social-container">
+                    <div class="sidemenu-detail social-detail">
+                            <h2>Social</h2><br>
+                            Connect with us on the plaftforms below<br><br><br>
+                            <ul>
+                                <li class="social-icon" id="insta"></li>
+                                <li class="social-icon" id="twitter"></li>
+                                <li class="social-icon" id="facebook"></li>
+                            </ul>
+                    </div>         
+                </div>
             </div>
         </nav>
         <!-- bottom section nav -->
         <div class="section-nav">  
             <ul>
-                <li class="section-nav-item" data-section-index = "0">top</li>
+                <li class="section-nav-item" data-section-index = "-1">top</li>
                 <li class="section-nav-item" data-section-index = "1">customize it up</li>
                 <li class="section-nav-item" data-section-index = "4">find your tea</li>
                 <li class="section-nav-item" data-section-index = "5">submit</li>
@@ -586,12 +569,12 @@
                                 </div>
                                 
                                 <div class="input-block">
-                                    <label class="form-label" name="name">name of the place</label>
+                                    <label class="form-label" name="name">what's the name of the place</label>
                                     <input name="name" type="text" id="name" placeholder=""/>
                                 </div>
                                         
                                 <div class="input-block">
-                                    <label class="form-label" name="location">location of the place</label>
+                                    <label class="form-label" name="location">where is it located</label>
                                     <input name="location" type="text" id="location" placeholder="" />
                                 </div>
                                 <div class="spacer"></div>
