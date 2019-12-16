@@ -195,7 +195,7 @@ var controller = new ScrollMagic.Controller();
 
 //_[1]__section 0___intro type animation
         let scrolloffset_intro = $(window).height() / 2;
-        let scrolloffset_intro_2 = $(window).height() * 4;
+        let scrolloffset_intro_2 = $(window).height() * 2 - scrolloffset_intro;
         let scrolloffset_bgtext_1 = $('#bg-text-1-A').width() * -1;
         let scrolloffset_bgtext_2 = $('#bg-text-1-B').width();
 
@@ -204,10 +204,10 @@ var controller = new ScrollMagic.Controller();
 
         timelineIntro 
         // .from("#intro-span-1", {y:"50", opacity:'0'})
-        .from("#intro-1", {y:"80"})
-        .from("#intro-span-2", {y:"50", opacity:'0'}, 0)
-        .from("#intro-span-3", {y:"50", opacity:'0'}, "+=0.1")
-        .from("#intro-span-4", {y:"50", opacity:'0'}, "+=0.1");
+        .to("#intro-span-1", {y:"-50", opacity:'0'}, 0)
+        .to("#intro-span-2", {y:"-50", opacity:'0'}, .1)
+        .to("#intro-span-3", {y:"-50", opacity:'0'}, .2)
+        .to("#intro-span-4", {y:"-50", opacity:'0'}, .3);
 
         timelineIntro_2
         .to("#intro-1", {y:"-50", opacity:'0'},0)
@@ -217,16 +217,16 @@ var controller = new ScrollMagic.Controller();
         .from("#bg-text-1-A", {x:`${scrolloffset_bgtext_1}`},.9)
         ;
 
-        new ScrollMagic.Scene({triggerElement: "#section-0", duration: "300%"})
+        new ScrollMagic.Scene({triggerElement: "#section-0", duration: "200%"})
             .offset(scrolloffset_intro)
             .setTween(timelineIntro)
             // .addIndicators({name: "intro-1 (duration: 300%)"}) // add indicators
             .addTo(controller);
 
-        new ScrollMagic.Scene({triggerElement: "#section-0", duration: "550%"})
+        new ScrollMagic.Scene({triggerElement: "#section-0", duration: "670%"})
             .offset(scrolloffset_intro_2)
             .setTween(timelineIntro_2)
-            // .addIndicators({name: "intro-2 (duration: half%)"}) // add indicators
+            // .addIndicators({name: "intro-2 (duration: 670%)"}) // add indicators
             .addTo(controller);
 
 
