@@ -1,8 +1,8 @@
-@import "reset.css"; /* reset all styles */
+@import "../css/reset.css"; /* reset all styles */
 
 @font-face{
     font-family: "Helvetica Now";
-    src: url("font/HelveticaNowDisplayXBlk.otf");
+    src: url("../font/HelveticaNowDisplayXBlk.otf");
 }
 
 :root{
@@ -67,7 +67,7 @@ a{
     content:'scroll';
 }
 .pointer#mycursor{
-    background-image: url("img/cursor-pointer.svg");
+    background-image: url("../img/cursor-pointer.svg");
     transform: translate(-20%, -80%);
     background-repeat: no-repeat;
     border: none;
@@ -1461,11 +1461,11 @@ textarea::placeholder{
     transform:scale(1.1);
 }
 #insta{
-    background-image: url('img/icon-insta.svg');
+    background-image: url('../img/icon-insta.svg');
 }
 #twitter{
-    background-image: url('img/icon-twitter.svg');
+    background-image: url('../img/icon-twitter.svg');
 }
 #facebook{
-    background-image: url('img/icon-facebook.svg');
+    background-image: url('../img/icon-facebook.svg');
 }
